@@ -1,18 +1,20 @@
-#!/usr/bin/env python2
-# -*- coding: utf-8 -*-
-"""@author: kyleguan
-"""
+# Description: This is the main file for the vehicle detection and tracking project.
+
 
 import numpy as np
 import matplotlib.pyplot as plt
 import glob
 from moviepy.editor import VideoFileClip
 from collections import deque
-from sklearn.utils.linear_assignment_ import linear_assignment
+# from sklearn.utils.linear_assignment_ import linear_assignment
+from scipy.optimize import linear_sum_assignment as linear_assignment
 
 import helpers
 import detector
+import time
 import tracker
+from helpers import box_iou2
+from collections import deque
 
 # Global variables to be used by funcitons of VideoFileClop
 frame_count = 0 # frame counter
@@ -137,7 +139,7 @@ def pipeline(img):
         for idx in unmatched_dets:
             z = z_box[idx]
             z = np.expand_dims(z, axis=0).T
-            tmp_trk = Tracker() # Create a new tracker
+            tmp_trk = tracker() # Create a new tracker
             x = np.array([[z[0], 0, z[1], 0, z[2], 0, z[3], 0]]).T
             tmp_trk.x_state = x
             tmp_trk.predict_only()
@@ -193,7 +195,7 @@ if __name__ == "__main__":
     det = detector.CarDetector()
     
     if debug: # test on a sequence of images
-        images = [plt.imread(file) for file in glob.glob('./test_images/*.jpg')]
+        images = [plt.imread(file) for file in glob.glob('/workspaces/VehicleVision/test_images/*.jpg')]
         
         for i in range(len(images))[0:7]:
              image = images[i]
@@ -201,13 +203,11 @@ if __name__ == "__main__":
              plt.imshow(image_box)
              plt.show()
            
-    else: # test on a video file.
-        
-        start=time.time()
-        output = 'test_v7.mp4'
-        clip1 = VideoFileClip("project_video.mp4")#.subclip(4,49) # The first 8 seconds doesn't have any cars...
-        clip = clip1.fl_image(pipeline)
-        clip.write_videofile(output, audio=False)
-        end  = time.time()
-        
-        print(round(end-start, 2), 'Seconds to finish')
+    start = time.time()
+    output = 'test_v7.mp4'
+    clip1 = VideoFileClip("/workspaces/VehicleVision/project_video.mp4")#.subclip(4,49) # The first 8 seconds doesn't have any cars...
+    clip = clip1.fl_image(pipeline)
+    clip.write_videofile(output, audio=False)
+    end = time.time()
+
+    print(round(end-start, 2), 'Seconds to finish')

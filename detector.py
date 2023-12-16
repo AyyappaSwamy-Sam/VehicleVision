@@ -11,9 +11,9 @@ import time
 from glob import glob
 cwd = os.path.dirname(os.path.realpath(__file__))
 
-# Uncomment the following two lines if need to use the Tensorflow visualization_unitls
+#Uncomment the following two lines if need to use the Tensorflow visualization_unitls
 #os.chdir(cwd+'/models')
-#from object_detection.utils import visualization_utils as vis_util
+from object_detection.utils import visualization_utils as vis_util
 
 class CarDetector(object):
     def __init__(self):
@@ -25,7 +25,7 @@ class CarDetector(object):
         #Tensorflow localization/detection model
         # Single-shot-dectection with mobile net architecture trained on COCO dataset
         
-        detect_model_name = 'ssd_mobilenet_v1_coco_11_06_2017'
+        detect_model_name = '/workspaces/VehicleVision/Pre Trained Model'
         
         PATH_TO_CKPT = detect_model_name + '/frozen_inference_graph.pb'
         
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         # Test the performance of the detector
         det =CarDetector()
         os.chdir(cwd)
-        TEST_IMAGE_PATHS= glob(os.path.join('test_images/', '*.jpg'))
+        TEST_IMAGE_PATHS= glob(os.path.join('/workspaces/VehicleVision/test_images', '*.jpg'))
         
         for i, image_path in enumerate(TEST_IMAGE_PATHS[0:2]):
             print('')
