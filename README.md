@@ -74,10 +74,13 @@ Kalman filter consists of two steps: prediction and update. The first step uses 
 ### Kalman Filter Equations:
 #### Prediction phase: notations
 <img src="example_imgs/pred_notations.gif" alt="Drawing" style="width: 250px;"/>
+
 #### Prediction phase: equations
 <img src="example_imgs/KF_predict.gif" alt="Drawing" style="width: 125px;"/>
+
 #### Update phase: notations
 <img src="example_imgs/update_notations.gif" alt="Drawing" style="width: 250px;"/>
+
 #### Update phase: equations
 <img src="example_imgs/KF_update.gif" alt="Drawing" style="width: 200px;"/>
 
