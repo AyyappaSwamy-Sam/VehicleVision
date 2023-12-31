@@ -87,13 +87,13 @@ B: control function (matrix)
 u: Control input
 ```
 #### Prediction phase: equations
-<img src="example_imgs/KF_predict.gif" alt="Drawing" style="width: 125px;"/>
+<img src="example_imgs/KF_eq_predict.jpg" alt="Drawing" style="width: 125px;"/>
 
 #### Update phase: notations
-<img src="example_imgs/update_notations.gif" alt="Drawing" style="width: 250px;"/>
+<img src="example_imgs/update_notations.jpg" alt="Drawing" style="width: 250px;"/>
 
 #### Update phase: equations
-<img src="example_imgs/KF_update.gif" alt="Drawing" style="width: 200px;"/>
+<img src="example_imgs/KF_update.jpg" alt="Drawing" style="width: 200px;"/>
 
 ### Kalman Filter Implementation
 In this section, we describe the implementation of the Kalman filter in detail.
