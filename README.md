@@ -73,8 +73,19 @@ Kalman filter consists of two steps: prediction and update. The first step uses 
 
 ### Kalman Filter Equations:
 #### Prediction phase: notations
-<img src="example_imgs/pred_notations.gif" alt="Drawing" style="width: 250px;"/>
+```
+x: State mean
 
+P: State covariance
+
+F: State transition matrix
+
+Q: Process covarience
+
+B: control function (matrix)
+
+u: Control input
+```
 #### Prediction phase: equations
 <img src="example_imgs/KF_predict.gif" alt="Drawing" style="width: 125px;"/>
 
