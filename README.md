@@ -74,6 +74,29 @@ Kalman filter consists of two steps: prediction and update. The first step uses 
 ### Kalman Filter Equations:
 #### Prediction phase: notations
 <img src="example_imgs/pred_notations.gif" alt="Drawing" style="width: 250px;"/>
+$\bar{x} = Fx + Bu$, where 
+
+u = control input matrix
+
+$\bar{P} = FPF^T + Q$
+
+
+Here, 
+
+ $Fx = \begin{bmatrix}
+  y_{1,k-1} + u_{y1,k-1} \Delta t \\
+  u_{y1,k-1} \\
+  x_{1 k-1} + u_{x1,k-1} \Delta t \\
+  u_{x1,k-1} \\
+  y_{2,k-1} + u_{y2,k-1} \Delta t \\
+  u_{y2,k-1} \\
+  x_{2,k-1} + u_{x2,k-1} \Delta t \\
+  u_{x2,k-1}
+  \end{bmatrix}$,
+
+  
+  
+  $ Bu = \begin{bmatrix} y_{1 k-1} \\ x_{1 k-1} \\ y_{2 k-1} \\x_{2 k-1}\end{bmatrix}$.
 
 #### Prediction phase: equations
 <img src="example_imgs/KF_predict.gif" alt="Drawing" style="width: 125px;"/>
