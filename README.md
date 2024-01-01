@@ -1,4 +1,4 @@
-# VehicleVision: Vehicle Detection and Tracking
+# VehicleVision: Vehicle Trackikng and Localization
 
 
 ## Overview
