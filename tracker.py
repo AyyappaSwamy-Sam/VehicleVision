@@ -126,7 +126,7 @@ if __name__ == "__main__":
     # Visualize the Kalman filter process and the 
     # impact of measurement nosie convariance matrix
     
-    images = [plt.imread(file) for file in glob.glob('/workspaces/VehicleVision/test_images/*.jpg')]
+    images = [plt.imread(file) for file in glob.glob(r'E:\maths project\VehicleVision\test_images\*.jpg')]
     img=images[3]
 
     plt.figure(figsize=(10, 14))

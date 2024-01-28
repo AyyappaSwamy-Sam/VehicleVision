@@ -195,7 +195,7 @@ if __name__ == "__main__":
     det = detector.CarDetector()
     
     if debug: # test on a sequence of images
-        images = [plt.imread(file) for file in glob.glob('/workspaces/VehicleVision/test_images/*.jpg')]
+        images = [plt.imread(file) for file in glob.glob(r'E:\maths project\VehicleVision\test_images\*.jpg')]
         
         for i in range(len(images))[0:7]:
              image = images[i]
@@ -205,7 +205,7 @@ if __name__ == "__main__":
            
     start = time.time()
     output = 'test_v7.mp4'
-    clip1 = VideoFileClip("/workspaces/VehicleVision/project_video.mp4")#.subclip(4,49) # The first 8 seconds doesn't have any cars...
+    clip1 = VideoFileClip(r"E:\maths project\VehicleVision\project_video.mp4")#.subclip(4,49) # The first 8 seconds doesn't have any cars...
     clip = clip1.fl_image(pipeline)
     clip.write_videofile(output, audio=False)
     end = time.time()

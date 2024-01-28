@@ -25,9 +25,9 @@ class CarDetector(object):
         #Tensorflow localization/detection model
         # Single-shot-dectection with mobile net architecture trained on COCO dataset
         
-        detect_model_name = '/workspaces/VehicleVision/Pre Trained Model'
+        detect_model_name = r'E:\maths project\VehicleVision\Pre Trained Model'
         
-        PATH_TO_CKPT = detect_model_name + '/frozen_inference_graph.pb'
+        PATH_TO_CKPT = detect_model_name + '\\frozen_inference_graph.pb'
         
         # setup tensorflow graph
         self.detection_graph = tf.Graph()
@@ -149,7 +149,7 @@ if __name__ == '__main__':
         # Test the performance of the detector
         det =CarDetector()
         os.chdir(cwd)
-        TEST_IMAGE_PATHS= glob(os.path.join('/workspaces/VehicleVision/test_images', '*.jpg'))
+        TEST_IMAGE_PATHS= glob(os.path.join(r'E:\maths project\VehicleVision\test_images', '*.jpg'))
         
         for i, image_path in enumerate(TEST_IMAGE_PATHS[0:2]):
             print('')
